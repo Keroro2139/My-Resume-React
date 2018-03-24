@@ -4,20 +4,12 @@ var date = new Date()
 var Hours = date.getHours()
 var Minutes = date.getMinutes()
 
-if (Hours >= 0 && Hours < 10) {
-    Hours = '0' + Hours
-}
-if (Minutes >= 0 && Minutes < 10) {
-    Minutes = '0' + Minutes
-}
-
-var now = Hours.toString() + '.' + Minutes.toString()
 var changed
 
-if (now >= '6.00' && now <= '17.59') {
+if (Hours >= 6 && Hours < 18) {
     changed = 'lightTheme'
 }
-else if ((now >= '18.00' && now <= 23.59) || (now >= '00.00' && now <= '5.59')) {
+else if ((Hours >= 18 && Hours <= 23) || (Hours >= 0 && Hours < 6)) {
     changed = 'darkTheme'
 }
 

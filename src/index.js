@@ -23,20 +23,14 @@ const store = createStore(
 var date = new Date()
 var hour = date.getHours()
 var min = date.getMinutes()
-var now = hour.toString() + '.' + min.toString()
 
-store.dispatch({
-    type: GET_CURRENT_TIME,
-    payload: now
-})
-
-if (now >= '6.00' && now <= '17.59') {
+if (hour >= 6 && hour < 18) {
     store.dispatch({
         type: CHANGE_THEME,
         payload: 'lightTheme'
     })
 }
-else if (now >= '18.00' && now <= '5.59') {
+else if ((hour >= 18 && hour <= 23) || (hour >= 0 && hour < 6)) {
     store.dispatch({
         type: CHANGE_THEME,
         payload: 'darkTheme'
