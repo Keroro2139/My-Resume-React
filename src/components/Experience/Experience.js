@@ -46,7 +46,7 @@ class Experience extends Component {
             departmentStyle: {
                 color: `${Theme[Mode].text}`,
                 fontSize: 24,
-                marginTop: -10,
+                marginTop: -7,
             },
             dateStyle: {
                 fontSize: 22,
@@ -56,7 +56,7 @@ class Experience extends Component {
             descriptionStyle: {
                 fontSize: 22,
                 color: `${Theme[Mode].text}`,
-                lineHeight: 2,
+                lineHeight: 1,
             }
         }
 
