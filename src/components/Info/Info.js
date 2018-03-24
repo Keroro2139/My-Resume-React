@@ -14,12 +14,12 @@ const Theme = {
 }
 const Information = {
     TH: {
-        name: 'วีรพัฒน์ จุฬเกตุ',
+        name: 'วีรพัฒน์ จุฬเกตุ (อ๊บ)',
         address: '98/2 หมู่ 4 ต.บ้านบึง อ.บ้างบึง จ.ชลบุรี ประเทศไทย 20170',
         dateOfBirth: '21 มีนาคม 2539'
     },
     EN: {
-        name: 'Weerapat Chulaket',
+        name: 'Weerapat Chulaket (aob)',
         address: '98/2 Moo 4, Banbung, Banbung, Chonburi, Thailand 20170.',
         dateOfBirth: '21 Mar, 1996'
     }
@@ -34,9 +34,9 @@ class Info extends Component {
 
         const styles = {
             name: {
-                fontSize: 32,
+                fontSize: 32,   
+                fontWeight: 700,
                 marginBottom: 30,
-                fontWeight: 550,
                 textTransform: 'uppercase',
                 letterSpacing: -1,
                 color: `${Theme[Mode].head}`,
