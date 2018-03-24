@@ -2,9 +2,25 @@
     padding: 0;
     margin: 0;
 }
-
+@font-face {
+    font-family: THSarabunNew;
+    src: url('./fonts/THSarabunNew.woff');
+    
+}
+@font-face {
+    font-family: THSarabunNew_Bold;
+    src: url('./fonts/THSarabunNew_Bold.woff');
+}
+@font-face {
+    font-family: THSarabunNew_BoldItalic;
+    src: url('./fonts/THSarabunNew_BoldItalic.woff');
+}
+@font-face {
+    font-family: THSarabunNew_Italic;
+    src: url('./fonts/THSarabunNew_Italic.woff');
+}
 html, body {
-    font-family: Helvetica, sans-serif;
+    font-family: THSarabunNew;
     height: 100%;
 }
 #container {

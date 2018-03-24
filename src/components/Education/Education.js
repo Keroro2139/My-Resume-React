@@ -20,26 +20,53 @@ const Theme = {
 
 class Education extends Component {
     render() {
-        const educationData = [
-            {
-                title: 'Burapha University',
-                subTitle: 'Bachelor degree of Science in Computer, Facult of Informatics',
-                date: 'Aug 2014 - Mar 2018',
-                gpa: 'GPA: 3.18 (5 semesters)'
-            },
-            {
-                title: 'Maryvit School',
-                subTitle: 'Science - Mathematics',
-                date: 'Mar 2002 - Feb 2014',
-                gpa: null,
-            }
-        ]
+
         const { changed } = this.props
         const Mode = changed.changed
+        const Language = changed.language
+
+        const Information = {
+            EN: {
+                title: 'Education',
+                school: [
+                    {
+                        title: 'Burapha University',
+                        subTitle: 'Bachelor degree of Science in Computer, Facult of Informatics',
+                        date: 'Aug 2014 - Mar 2018',
+                        gpa: 'GPA: 3.18 (5 semesters)'
+                    },
+                    {
+                        title: 'Maryvit Pattaya School',
+                        subTitle: 'Science - Mathematics',
+                        date: 'Mar 2002 - Feb 2014',
+                        gpa: null,
+                    }
+                ]
+            },
+            TH: {
+                title: 'การศึกษา',
+                school: [
+                    {
+                        title: 'มหาวิทยาลัยบูรพา',
+                        subTitle: 'วิทยาการสารสนเทศ (ปริญญาตรี), คณะวิทยาการสารสนเทศ',
+                        date: 'สิงหาคม 2557 - พฤษภาคม 2561',
+                        gpa: 'เกรดเฉลี่ย: 3.18 (5 เทอม)'
+                    },
+                    {
+                        title: 'โรงเรียนมารีวิทย์ พัทยา',
+                        subTitle: 'วิทย์ - คณิต',
+                        date: 'พฤษภาคม 2545 - กุมภาพันธ์ 2557',
+                        gpa: null,
+                    }
+                ]
+            }
+        }
 
         const styles = {
             icon: {
                 marginRight: 15,
+                marginTop: 5,
+                marginLeft: 5,
                 display: 'inline-block',
                 color: `${Theme[Mode].icon}`,
                 fontSize: 25,
@@ -48,37 +75,40 @@ class Education extends Component {
                 marginRight: 18,
                 display: 'inline-block',
                 color: `${Theme[Mode].icon}`,
-                fontSize: 18,
+                fontSize: 22,
             },
             titleStyle: {
-                fontSize: 16,
+                fontSize: 24,
                 color: `${Theme[Mode].text}`,
                 letterSpacing: -.25,
-                fontWeight: 550,
+                fontWeight: 600,
+                lineHeight: 1,
             },
             dateStyle: {
-                fontSize: 14,
+                fontSize: 22,
                 color: `${Theme[Mode].icon}`,
+                marginTop: -3,
             },
             gpaStyle: {
-                fontSize: 14,
+                fontSize: 22,
                 color: `${Theme[Mode].text}`,
                 marginTop: -13,
             },
             descriptionStyle: {
-                fontSize: 14,
+                fontSize: 22,
                 color: `${Theme[Mode].text}`,
-                marginTop: 5,
+                marginTop: 0,
+                lineHeight: 1,
             }
         }
         return (
             <div>
                 <div style={{ display: 'flex' }}>
                     <i className="fas fa-graduation-cap" style={styles.icon}></i>
-                    <h1 style={{ color: `${Theme[Mode].head}`, fontSize: 25, display: 'inline-block' }}>Education</h1>
+                    <h1 style={{ color: `${Theme[Mode].head}`, fontSize: 32, display: 'inline-block' }}>{Information[Language].title}</h1>
                 </div>
                 {
-                    educationData.map((data, i) =>
+                    Information[Language].school.map((data, i) =>
                         <CardDetail key={i}>
                             <h2 style={styles.titleStyle}>{data.title}</h2>
                             <p style={styles.descriptionStyle}>{data.subTitle}</p>
@@ -87,7 +117,7 @@ class Education extends Component {
                                 <i className="fas fa-calendar-alt" style={styles.iconDate}></i>
                                 <p style={styles.dateStyle}>{data.date}</p>
                             </div>
-                            {i === educationData.length - 1 ? null : <hr style={{ backgroundColor: `${Theme[Mode].hr}`, marginTop: -1 }} />}
+                            {i === Information[Language].school.length - 1 ? null : <hr style={{ backgroundColor: `${Theme[Mode].hr}`, marginTop: -1 }} />}
                         </CardDetail>
                     )
                 }

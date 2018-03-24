@@ -21,19 +21,25 @@ module.exports = {
                 use: ['babel-loader']
             },
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                test: /\.(ttf|eot|woff|woff2)$/,
+                loader: "file-loader",
+                options: {
+                    sourceMap: true,
+                    name: "fonts/[name].[ext]",
+                },
             },
             {
                 test: /\.scss$/,
                 use: [{
                     loader: "style-loader"
                 }, {
-                    loader: "css-loader", options: {
+                    loader: "css-loader", 
+                    options: {
                         sourceMap: true
                     }
                 }, {
-                    loader: "sass-loader", options: {
+                    loader: "sass-loader", 
+                    options: {
                         sourceMap: true
                     }
                 }]
@@ -41,7 +47,7 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: ['file-loader']
-            }
+            },
         ]
     },
     resolve: {

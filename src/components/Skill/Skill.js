@@ -74,15 +74,17 @@ class Skill extends Component {
         const styles = {
             icon: {
                 marginRight: 15,
+                marginTop: 5,
+                marginLeft: 5,
                 display: 'inline-block',
                 color: `${Theme[Mode].icon}`,
                 fontSize: 25,
             },
             titleStyle: {
-                fontSize: 16,
+                fontSize: 22,
                 color: `${Theme[Mode].text}`,
                 letterSpacing: -.25,
-                fontWeight: 550,
+                fontWeight: 600,
             },
         }
 
@@ -90,7 +92,7 @@ class Skill extends Component {
             <div style={{ paddingBottom: 30 }}>
                 <div style={{ display: 'flex' }}>
                     <i className="fas fa-cog" style={styles.icon}></i>
-                    <h1 style={{ color: `${Theme[Mode].head}`, fontSize: 25, display: 'inline-block' }}>
+                    <h1 style={{ color: `${Theme[Mode].head}`, fontSize: 32, display: 'inline-block' }}>
                         {Information[Language].title}
                     </h1>
                 </div>

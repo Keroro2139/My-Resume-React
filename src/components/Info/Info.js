@@ -34,9 +34,9 @@ class Info extends Component {
 
         const styles = {
             name: {
-                fontSize: 25,
+                fontSize: 32,
                 marginBottom: 30,
-                fontWeight: 'bold',
+                fontWeight: 550,
                 textTransform: 'uppercase',
                 letterSpacing: -1,
                 color: `${Theme[Mode].head}`,
@@ -45,14 +45,16 @@ class Info extends Component {
                 marginRight: 20,
                 display: 'inline-block',
                 color: `${Theme[Mode].icon}`,
+                fontSize: 18,
             },
             flex: {
                 display: 'flex',
             },
             detailStyle: {
-                fontSize: 14,
+                fontSize: 22,
                 display: 'inline-block',
                 color: `${Theme[Mode].text}`,
+                lineHeight: 1,
             }
         }
         return (
@@ -72,7 +74,7 @@ class Info extends Component {
                 </div>
                 <div style={styles.flex}>
                     <i className="fas fa-birthday-cake" style={styles.icon}></i>
-                    <p style={styles.detailStyle}>21 March, 1996.</p>
+                    <p style={styles.detailStyle}>{Information[Language].dateOfBirth}</p>
                 </div>
                 <div style={styles.flex}>
                     <i className="fab fa-github" style={styles.icon}></i>

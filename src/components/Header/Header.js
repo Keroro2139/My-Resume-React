@@ -84,7 +84,7 @@ class Header extends Component {
                 display: 'flex',
             },
             label: {
-                fontSize: 16,
+                fontSize: 22,
                 color: `${Theme[Mode].color}`,
                 padding: '17px 10px',
                 marginRight: 0,
@@ -95,7 +95,8 @@ class Header extends Component {
             time: {
                 color: `${Theme[Mode].clock}`,
                 float: 'left',
-                padding: '17px 30px'
+                padding: '17px 30px',
+                fontSize: 22
             },
             switch: {
                 position: 'absolute',
@@ -103,19 +104,19 @@ class Header extends Component {
                 right: 30
             },
             languageTH: {
-                marginTop: 18,
+                marginTop: 17,
                 color: `${Theme[Mode].language}`,
-                fontSize: 14,
+                fontSize: 22,
             },
             slash: {
                 padding: '17px 5px',
                 color: `${Theme[Mode].language}`,
-                fontSize: 14
+                fontSize: 22
             },
             languageENG: {
-                marginTop: 18.75,
+                marginTop: 17,
                 color: `${Theme[Mode].language}`,
-                fontSize: 14
+                fontSize: 22,
             },
 
         }
@@ -133,7 +134,7 @@ class Header extends Component {
                     <p style={styles.time}>{Clock}</p>
                     <p style={styles.languageTH} id='thai-language' onClick={this.handleThai.bind(this)}>ภาษาไทย</p>
                     <p style={styles.slash}>|</p>
-                    <p style={styles.languageENG} id='eng-language' onClick={this.handleEnglish.bind(this)}>English (Demo)</p>
+                    <p style={styles.languageENG} id='eng-language' onClick={this.handleEnglish.bind(this)}>English</p>
                     <p style={styles.label}>{Mode}</p>
                     <div style={styles.switch}>
                         <Switch

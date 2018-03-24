@@ -21,48 +21,83 @@ const Theme = {
 
 class Project extends Component {
     render() {
-        const projectDetail = [
-            {
-                title: 'MFEC Web Application for AWS report',
-                detail: 'Using cloud services for database and API gateway with Node.js and create web application for report with React Redux concept.',
-            },
-            {
-                title: `Employee's Work Time`,
-                detail: 'Designed ERD and written the code by PHP and database as MySQL.',
-            },
-            {
-                title: 'Todos App',
-                detail: 'Created Todos app on web with AngularJS.',
-            },
-            {
-                title: 'Matching Game',
-                detail: 'Created Matching Game on IOS with Swift 3.0.',
-            },
-            {
-                title: 'Using the Elevator Simulation',
-                detail: 'Simulated using the elevator of employees.',
-            },
-        ]
         const { changed } = this.props
         const Mode = changed.changed
+        const Language = changed.language
+
+        const Information = {
+            EN: {
+                title: 'Project',
+                project: [
+                    {
+                        title: 'MFEC Web Application for AWS report',
+                        detail: 'Using cloud services for database and API gateway with Node.js and create web application for report with React Redux concept.',
+                    },
+                    {
+                        title: `Employee's Work Time`,
+                        detail: 'Designed ERD and written the code by PHP and database as MySQL.',
+                    },
+                    {
+                        title: 'Todos App',
+                        detail: 'Created Todos app on web with AngularJS.',
+                    },
+                    {
+                        title: 'Matching Game',
+                        detail: 'Created Matching Game on IOS with Swift 3.0.',
+                    },
+                    {
+                        title: 'Using the Elevator Simulation',
+                        detail: 'Simulated using the elevator of employees.',
+                    },
+                ]
+            },
+            TH: {
+                title: 'ผลงาน',
+                project: [
+                    {
+                        title: 'MFEC Web Application for AWS report',
+                        detail: 'ใช้บริการคลาวด์สำหรับฐานข้อมูลและใช้ API Gateway เป็นตัวกลางในการรับส่งข้อมูลโดยใช้ Node.js และสร้างเว็บแอพพลิเคชั่นสำหรับรายงานพัฒนาโดยใช้ แนวคิด React Redux.',
+                    },
+                    {
+                        title: `Employee's Work Time`,
+                        detail: 'ออกแบบ ERD และพัฒนาโดยใช้ภาษา PHP และ ฐานข้อมูลเป็น MySQL.',
+                    },
+                    {
+                        title: 'Todos App',
+                        detail: 'สร้างแอพพลิเคชั่น Todos บนเว็บโดยใช้ AngularJS.',
+                    },
+                    {
+                        title: 'Matching Game',
+                        detail: 'สร้างเกมจับคู่บน IOS โดยใช้ภาษา Swift 3.0.',
+                    },
+                    {
+                        title: 'Using the Elevator Simulation',
+                        detail: 'จำลองการใช้ลิฟต์ของพนักงาน.',
+                    },
+                ]
+            }
+        }
 
         const styles = {
             icon: {
                 marginRight: 17,
+                marginTop: 5,
+                marginLeft: 5,
                 display: 'inline-block',
                 color: `${Theme[Mode].icon}`,
                 fontSize: 25,
             },
             titleStyle: {
-                fontSize: 16,
+                fontSize: 24,
                 color: `${Theme[Mode].text}`,
                 letterSpacing: -.25,
-                fontWeight: 550,
+                fontWeight: 600,
             },
             descriptionStyle: {
-                fontSize: 14,
+                fontSize: 22,
                 color: `${Theme[Mode].subText}`,
                 marginTop: 5,
+                lineHeight: 1,
             }
 
         }
@@ -70,14 +105,14 @@ class Project extends Component {
             <div>
                 <div style={{ display: 'flex' }}>
                     <i className="fas fa-code" style={styles.icon}></i>
-                    <h1 style={{ color: `${Theme[Mode].head}`, fontSize: 25, display: 'inline-block' }}>Project</h1>
+                    <h1 style={{ color: `${Theme[Mode].head}`, fontSize: 32, display: 'inline-block' }}>{Information[Language].title}</h1>
                 </div>
                 {
-                    projectDetail.map((data, i) =>
+                    Information[Language].project.map((data, i) =>
                         <CardDetail key={i}>
                             <h2 style={styles.titleStyle}>{data.title}</h2>
                             <i><p style={styles.descriptionStyle}>{data.detail}</p></i>
-                            {i === projectDetail.length - 1 ? null : <hr style={{ backgroundColor: `${Theme[Mode].hr}` }} />}
+                            {i === Information[Language].project.length - 1 ? null : <hr style={{ backgroundColor: `${Theme[Mode].hr}` }} />}
                         </CardDetail>
                     )
                 }
