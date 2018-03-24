@@ -4,14 +4,16 @@ import Switch from 'material-ui/Switch'
 
 const Theme = {
     lightTheme: {
-        color: '#202020',
+        color: '#1E1E1E',
         clock: '#202020',
         language: '#202020',
+        nav: '#F7F7F7',
     },
     darkTheme: {
         color: '#E41E26',
         clock: '#fff',
         language: '#dcdcdc',
+        nav: '#1A1A1A',
     }
 }
 const MONTH_NAMES_EN = ["January", "February", "March", "April", "May", "June",
@@ -28,6 +30,7 @@ class Header extends Component {
         day: new Date().getDate(),
         month: new Date().getMonth(),
         year: new Date().getFullYear(),
+        active: 'English'
     }
     componentDidMount() {
         this.timerID = setInterval(
@@ -59,12 +62,15 @@ class Header extends Component {
     }
     handleThai() {
         this.props.changeLanguage('TH')
+        const Thai = document.querySelector('#thai-language')
+        this.setState({ active: 'Thai' })
     }
     handleEnglish() {
         this.props.changeLanguage('EN')
+        this.setState({ active: 'English' })
     }
     render() {
-        const { date, day, month, year } = this.state
+        const { date, day, month, year, active } = this.state
         var Hours = date.getHours().toString()
         var Minutes = date.getMinutes().toString()
         var Seconds = date.getSeconds().toString()
@@ -86,10 +92,10 @@ class Header extends Component {
 
         const Information = {
             EN: {
-                Month: `${MONTH_NAMES_EN[month]}`
+                Month: `${MONTH_NAMES_EN[month]}`,
             },
             TH: {
-                Month: `${MONTH_NAMES_TH[month]}`
+                Month: `${MONTH_NAMES_TH[month]}`,
             }
         }
 
@@ -97,24 +103,31 @@ class Header extends Component {
             headerStyle: {
                 width: '100%',
                 height: 60,
-                marginBottom: -10,
+                background: `${Theme[Mode].nav}`,
+                boxShadow: '0 0 5px rgba(0, 0, 0, 0.375)',
+                position: 'fixed',
+                zIndex: 995,
             },
-            position: {
+            positionNav: {
                 display: 'flex',
+            },
+            positionSecNav: {
+                display: 'flex',
+                paddingTop: 70,
             },
             label: {
                 fontSize: 22,
                 color: `${Theme[Mode].color}`,
-                padding: '17px 10px',
+                padding: '14px 10px',
                 marginRight: 0,
-                right: 80,
+                right: 65,
                 position: 'absolute',
                 display: 'inline-block',
             },
             time: {
                 color: `${Theme[Mode].clock}`,
                 float: 'left',
-                paddingTop: 17,
+                paddingTop: 10,
                 paddingRight: 20,
                 fontSize: 22
             },
@@ -122,28 +135,29 @@ class Header extends Component {
                 color: `${Theme[Mode].clock}`,
                 float: 'left',
                 fontSize: 22,
-                paddingTop: 17,
+                paddingTop: 10,
                 paddingLeft: 30,
                 paddingRight: 10,
             },
             switch: {
                 position: 'absolute',
-                paddingTop: 6,
-                right: 30
+                paddingTop: 5,
+                right: 15
             },
             languageTH: {
-                marginTop: 17,
-                color: `${Theme[Mode].language}`,
+                marginTop: 14,
+                marginLeft: 30,
+                color: active === 'Thai' ? '#E41E26' : `${Theme[Mode].language}`,
                 fontSize: 22,
             },
             slash: {
-                padding: '17px 5px',
+                padding: '13px 5px',
                 color: `${Theme[Mode].language}`,
                 fontSize: 22
             },
             languageENG: {
-                marginTop: 17,
-                color: `${Theme[Mode].language}`,
+                marginTop: 14,
+                color: active === 'English' ? '#E41E26' : `${Theme[Mode].language}`,
                 fontSize: 22,
             },
 
@@ -156,22 +170,27 @@ class Header extends Component {
             Mode = 'Light theme'
         }
         return (
-            <div style={styles.headerStyle}>
-                <div style={styles.position}>
+            <div >
+                <div style={styles.headerStyle}>
+                    <div style={styles.positionNav}>
+                        <p style={styles.languageTH} id='thai-language' onClick={this.handleThai.bind(this)}>ภาษาไทย</p>
+                        <p style={styles.slash}>|</p>
+                        <p style={styles.languageENG} id='eng-language' onClick={this.handleEnglish.bind(this)}>English</p>
+                        <p style={styles.label}>{Mode}</p>
+                        <div style={styles.switch}>
+                            <Switch
+                                checked={Mode === 'Light theme' ? false : true}
+                                onChange={this.handleChange('changedTheme')}
+                                value="changedTheme"
+                                color="secondary"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div style={styles.positionSecNav}>
                     <p style={styles.day}>{day} {Information[Language].Month}, {Language === 'EN' ? year : (year + 543)}</p>
                     <p style={styles.time}>{Clock}</p>
-                    <p style={styles.languageTH} id='thai-language' onClick={this.handleThai.bind(this)}>ภาษาไทย</p>
-                    <p style={styles.slash}>|</p>
-                    <p style={styles.languageENG} id='eng-language' onClick={this.handleEnglish.bind(this)}>English</p>
-                    <p style={styles.label}>{Mode}</p>
-                    <div style={styles.switch}>
-                        <Switch
-                            checked={Mode === 'Light theme' ? false : true}
-                            onChange={this.handleChange('changedTheme')}
-                            value="changedTheme"
-                            color="secondary"
-                        />
-                    </div>
                 </div>
             </div>
         )

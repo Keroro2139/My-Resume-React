@@ -14,7 +14,7 @@ class Home extends Component {
             <div id='home'>
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-md-4 col-sm-4">
+                        <div className="col-md-4 col-sm-5 col-12">
                             <Card>
                                 <CardImage>
                                     <img style={{ width: '100%' }} src="http://angsila.cs.buu.ac.th/~57160064/images/profile.JPG" alt="" />
@@ -25,7 +25,7 @@ class Home extends Component {
                                 </CardInfo>
                             </Card>
                         </div>
-                        <div className="col-md-8 col-sm-8">
+                        <div className="col-md-8 col-sm-7 col-12">
                             <div className="col-md-12" style={{ padding: 0 }}>
                                 <Card>
                                     <CardContainer>
