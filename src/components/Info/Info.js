@@ -5,11 +5,13 @@ const Theme = {
         head: '#202020',
         icon: '#3F68B5',
         text: '#666666',
+        hr: '#E5E5E5',
     },
     darkTheme: {
         head: '#E2E2E2',
         icon: '#E41E26',
         text: '#E7E7E7',
+        hr: '#5F5F5F',
     }
 }
 const Information = {
@@ -34,7 +36,7 @@ class Info extends Component {
 
         const styles = {
             name: {
-                fontSize: 30,   
+                fontSize: 30,
                 fontWeight: 'bold',
                 marginBottom: 30,
                 textTransform: 'uppercase',
@@ -82,6 +84,7 @@ class Info extends Component {
                         <p style={styles.detailStyle}>https://github.com/Keroro2139</p>
                     </a>
                 </div>
+                <hr style={{backgroundColor: `${Theme[Mode].hr}`}}/>
             </div>
         )
     }

@@ -21,7 +21,6 @@ class Home extends Component {
                                 </CardImage>
                                 <CardInfo>
                                     <Info />
-                                    <hr />
                                     <Skill />
                                 </CardInfo>
                             </Card>
