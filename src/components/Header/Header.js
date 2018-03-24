@@ -162,7 +162,7 @@ class Header extends Component {
             },
 
         }
-
+      
         if (Mode === 'darkTheme') {
             Mode = 'Dark theme'
         }
