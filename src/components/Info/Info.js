@@ -34,8 +34,8 @@ class Info extends Component {
 
         const styles = {
             name: {
-                fontSize: 32,   
-                fontWeight: 700,
+                fontSize: 30,   
+                fontWeight: 'bold',
                 marginBottom: 30,
                 textTransform: 'uppercase',
                 letterSpacing: -1,

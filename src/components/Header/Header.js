@@ -14,11 +14,20 @@ const Theme = {
         language: '#dcdcdc',
     }
 }
+const MONTH_NAMES_EN = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+]
+const MONTH_NAMES_TH = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายา", "พฤษภาคม", "มิถุนายน",
+    "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+]
 
 class Header extends Component {
     state = {
         changedTheme: false,
         date: new Date(),
+        day: new Date().getDate(),
+        month: new Date().getMonth(),
+        year: new Date().getFullYear(),
     }
     componentDidMount() {
         this.timerID = setInterval(
@@ -55,7 +64,7 @@ class Header extends Component {
         this.props.changeLanguage('EN')
     }
     render() {
-        const { date } = this.state
+        const { date, day, month, year } = this.state
         var Hours = date.getHours().toString()
         var Minutes = date.getMinutes().toString()
         var Seconds = date.getSeconds().toString()
@@ -73,6 +82,16 @@ class Header extends Component {
 
         const { changed } = this.props
         var Mode = changed.changed
+        const Language = changed.language
+
+        const Information = {
+            EN: {
+                Month: `${MONTH_NAMES_EN[month]}`
+            },
+            TH: {
+                Month: `${MONTH_NAMES_TH[month]}`
+            }
+        }
 
         const styles = {
             headerStyle: {
@@ -95,8 +114,17 @@ class Header extends Component {
             time: {
                 color: `${Theme[Mode].clock}`,
                 float: 'left',
-                padding: '17px 30px',
+                paddingTop: 17,
+                paddingRight: 20,
                 fontSize: 22
+            },
+            day: {
+                color: `${Theme[Mode].clock}`,
+                float: 'left',
+                fontSize: 22,
+                paddingTop: 17,
+                paddingLeft: 30,
+                paddingRight: 10,
             },
             switch: {
                 position: 'absolute',
@@ -127,10 +155,10 @@ class Header extends Component {
         else if (Mode === 'lightTheme') {
             Mode = 'Light theme'
         }
-
         return (
             <div style={styles.headerStyle}>
                 <div style={styles.position}>
+                    <p style={styles.day}>{day} {Information[Language].Month}, {Language === 'EN' ? year : (year + 543)}</p>
                     <p style={styles.time}>{Clock}</p>
                     <p style={styles.languageTH} id='thai-language' onClick={this.handleThai.bind(this)}>ภาษาไทย</p>
                     <p style={styles.slash}>|</p>
