@@ -98,7 +98,7 @@ class Education extends Component {
                 fontSize: 22,
                 color: `${Theme[Mode].text}`,
                 marginTop: 0,
-                lineHeight: 1,
+                lineHeight: 1.5,
             }
         }
         return (

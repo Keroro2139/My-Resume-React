@@ -56,7 +56,7 @@ class Experience extends Component {
             descriptionStyle: {
                 fontSize: 22,
                 color: `${Theme[Mode].text}`,
-                lineHeight: 1,
+                lineHeight: 2,
             }
         }
 

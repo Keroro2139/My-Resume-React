@@ -8,7 +8,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        setTimeout(() => this.setState({ time: 1 }), 1);
+        setTimeout(() => this.setState({ time: 1 }), 1800);
     }
 
     render() {
