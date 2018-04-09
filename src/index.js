@@ -18,7 +18,8 @@ if (!global._babelPolyfill) {
 
 const store = createStore(
     allReducers,
-    applyMiddleware(thunk, promise, logger)
+    // applyMiddleware(thunk, promise, logger),
+    applyMiddleware(thunk, promise),
 )
 var date = new Date()
 var hour = date.getHours()

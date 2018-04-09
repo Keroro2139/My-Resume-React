@@ -19,7 +19,7 @@ const Theme = {
 const MONTH_NAMES_EN = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ]
-const MONTH_NAMES_TH = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายา", "พฤษภาคม", "มิถุนายน",
+const MONTH_NAMES_TH = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
     "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
 ]
 
@@ -162,7 +162,7 @@ class Header extends Component {
             },
 
         }
-      
+
         if (Mode === 'darkTheme') {
             Mode = 'Dark theme'
         }
@@ -189,7 +189,7 @@ class Header extends Component {
                 </div>
 
                 <div style={styles.positionSecNav}>
-                    <p style={styles.day}>{day} {Information[Language].Month}, {Language === 'EN' ? year : (year + 543)}</p>
+                    <p style={styles.day}>{day} {Information[Language].Month}{Language === 'EN' ? ', ' + year : ' ' + (year + 543)}</p>
                     <p style={styles.time}>{Clock}</p>
                 </div>
             </div>
